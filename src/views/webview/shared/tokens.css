@@ -1,0 +1,250 @@
+:root {
+  /* Spacing scale (4px base) */
+  --afa-space-1: 4px;
+  --afa-space-2: 8px;
+  --afa-space-3: 12px;
+  --afa-space-4: 16px;
+  --afa-space-5: 20px;
+  --afa-space-6: 24px;
+
+  /* Radius */
+  --afa-radius-sm: 3px;
+  --afa-radius-md: 6px;
+  --afa-radius-pill: 999px;
+
+  /* Typography */
+  --afa-font: var(--vscode-font-family);
+  --afa-font-mono: var(--vscode-editor-font-family, 'Menlo', 'Consolas', monospace);
+  --afa-text-xs: 10px;
+  --afa-text-sm: 11px;
+  --afa-text-md: 12px;
+  --afa-text-lg: 13px;
+  --afa-text-xl: 14px;
+  --afa-lh-tight: 1.3;
+  --afa-lh-normal: 1.5;
+  --afa-weight-normal: 400;
+  --afa-weight-medium: 500;
+  --afa-weight-bold: 600;
+
+  /* Colors — map to VS Code theme */
+  --afa-bg: var(--vscode-sideBar-background);
+  --afa-bg-elevated: var(--vscode-editorWidget-background, var(--vscode-sideBar-background));
+  --afa-bg-hover: var(--vscode-list-hoverBackground);
+  --afa-bg-active: var(--vscode-list-activeSelectionBackground);
+  --afa-fg: var(--vscode-foreground);
+  --afa-fg-muted: var(--vscode-descriptionForeground);
+  --afa-border: var(--vscode-widget-border, var(--vscode-editorWidget-border));
+  --afa-border-subtle: color-mix(in srgb, var(--vscode-foreground) 15%, transparent);
+  --afa-focus: var(--vscode-focusBorder);
+
+  --afa-input-bg: var(--vscode-input-background);
+  --afa-input-fg: var(--vscode-input-foreground);
+  --afa-input-border: var(--vscode-input-border, var(--vscode-widget-border));
+  --afa-input-placeholder: var(--vscode-input-placeholderForeground);
+
+  --afa-btn-bg: var(--vscode-button-background);
+  --afa-btn-fg: var(--vscode-button-foreground);
+  --afa-btn-hover: var(--vscode-button-hoverBackground);
+  --afa-btn-secondary-bg: var(--vscode-button-secondaryBackground);
+  --afa-btn-secondary-fg: var(--vscode-button-secondaryForeground);
+  --afa-btn-secondary-hover: var(--vscode-button-secondaryHoverBackground);
+
+  --afa-danger: var(--vscode-errorForeground, #c53030);
+  --afa-warning: var(--vscode-editorWarning-foreground, #d69e2e);
+
+  /* Shadows */
+  --afa-shadow-sm: 0 1px 2px color-mix(in srgb, black 20%, transparent);
+  --afa-shadow-md: 0 2px 8px color-mix(in srgb, black 25%, transparent);
+
+  /* Transitions */
+  --afa-transition-fast: 120ms ease-out;
+  --afa-transition-base: 180ms ease-out;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--afa-font);
+  font-size: var(--afa-text-md);
+  line-height: var(--afa-lh-normal);
+  color: var(--afa-fg);
+  background: var(--afa-bg);
+}
+
+/* Focus ring default */
+:focus-visible {
+  outline: 2px solid var(--afa-focus);
+  outline-offset: 1px;
+}
+
+@keyframes afa-slide-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes afa-pop {
+  0% { transform: scale(0.92); opacity: 0; }
+  70% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes afa-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--afa-bg-elevated) 0%, var(--afa-bg-hover) 50%, var(--afa-bg-elevated) 100%);
+  background-size: 200% 100%;
+  animation: afa-shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--afa-radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.combobox {
+  position: relative;
+  display: inline-flex;
+  min-width: 120px;
+}
+
+.combobox-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--afa-space-2);
+  width: 100%;
+  padding: var(--afa-space-1) var(--afa-space-3);
+  background: var(--afa-bg-elevated);
+  color: var(--afa-fg);
+  border: 1px solid var(--afa-border-subtle);
+  border-radius: var(--afa-radius-pill);
+  font-family: var(--afa-font);
+  font-size: var(--afa-text-sm);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background var(--afa-transition-fast), border-color var(--afa-transition-fast), color var(--afa-transition-fast);
+}
+
+.combobox-trigger:hover {
+  background: color-mix(in srgb, var(--afa-focus) 8%, var(--afa-bg-elevated));
+  border-color: color-mix(in srgb, var(--afa-focus) 40%, var(--afa-border));
+  color: var(--afa-focus);
+}
+
+.combobox-trigger:focus-visible {
+  outline: 2px solid var(--afa-focus);
+  outline-offset: 1px;
+  border-color: var(--afa-focus);
+}
+
+.combobox-trigger[aria-expanded="true"] {
+  border-color: var(--afa-focus);
+  background: color-mix(in srgb, var(--afa-focus) 10%, var(--afa-bg-elevated));
+  color: var(--afa-focus);
+}
+
+.combobox-value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--afa-space-2);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.combobox-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.combobox-chevron {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  opacity: 0.7;
+  transition: transform var(--afa-transition-fast);
+}
+
+.combobox-trigger[aria-expanded="true"] .combobox-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.combobox-menu {
+  position: absolute;
+  top: calc(100% + var(--afa-space-1));
+  left: 0;
+  min-width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--afa-bg-elevated);
+  border: 1px solid var(--afa-border);
+  border-radius: var(--afa-radius-md);
+  box-shadow: var(--afa-shadow-md);
+  padding: var(--afa-space-1);
+  z-index: 100;
+  animation: afa-combobox-in 140ms ease-out;
+}
+
+.combobox-menu[hidden] { display: none !important; }
+
+@keyframes afa-combobox-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.combobox-option {
+  display: flex;
+  align-items: center;
+  gap: var(--afa-space-2);
+  padding: var(--afa-space-2) var(--afa-space-3);
+  border-radius: var(--afa-radius-sm);
+  font-size: var(--afa-text-sm);
+  color: var(--afa-fg);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--afa-transition-fast);
+}
+
+.combobox-option:hover,
+.combobox-option.active {
+  background: color-mix(in srgb, var(--afa-focus) 14%, transparent);
+  color: var(--afa-focus);
+}
+
+.combobox-option[aria-selected="true"] {
+  font-weight: var(--afa-weight-bold);
+}
+
+.combobox-option[aria-selected="true"]::before {
+  content: '✓';
+  font-size: 11px;
+  width: 12px;
+  flex: 0 0 auto;
+  color: var(--afa-focus);
+}
+
+.combobox-option:not([aria-selected="true"])::before {
+  content: '';
+  width: 12px;
+  flex: 0 0 auto;
+}
+
+.combobox-option-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

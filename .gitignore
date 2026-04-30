@@ -1,0 +1,4 @@
+.superpowers/
+*.vsix
+.vscode-test/
+node_modules/

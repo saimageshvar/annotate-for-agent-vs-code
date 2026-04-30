@@ -1,0 +1,212 @@
+{
+  "name": "annotate-for-agent",
+  "displayName": "Annotate for Agent",
+  "description": "Annotate agent-generated code and export feedback for the agent.",
+  "version": "0.0.22",
+  "publisher": "creative-chaos",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "annotateForAgent.annotate",
+        "title": "Annotate for Agent: Annotate"
+      },
+      {
+        "command": "annotateForAgent.createAnnotation",
+        "title": "Annotate for Agent: Annotate (Full panel)"
+      },
+      {
+        "command": "annotateForAgent.quickCapture",
+        "title": "Annotate for Agent: Annotate (Quick)"
+      },
+      {
+        "command": "annotateForAgent.openAnnotation",
+        "title": "Annotate for Agent: Open Annotation"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "annotateForAgent.annotate",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "annotateForAgent.quickCapture",
+        "key": "ctrl+shift+q",
+        "mac": "cmd+shift+q",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "annotateForAgent.quickCaptureEscalate",
+        "key": "ctrl+enter",
+        "mac": "cmd+enter",
+        "when": "inQuickOpen && annotateForAgent.quickCaptureActive"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "annotateForAgent.annotate",
+          "when": "editorTextFocus",
+          "group": "annotate"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "annotateForAgent",
+          "title": "Annotate for Agent",
+          "icon": "media/activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "annotateForAgent": [
+        {
+          "id": "annotateForAgent.list",
+          "name": "Annotations",
+          "type": "webview"
+        }
+      ]
+    },
+    "walkthroughs": [
+      {
+        "id": "getStarted",
+        "title": "Get started with Annotate for Agent",
+        "description": "Structured feedback for agent-generated code.",
+        "steps": [
+          {
+            "id": "modes",
+            "title": "Two modes",
+            "description": "**Panel** — rich form, multi-line.\n**Quick** — single-line, fastest.\n\n[Switch default](command:workbench.action.openSettings?%22annotateForAgent.defaultMode%22)",
+            "media": { "markdown": "media/walkthrough/modes.md" }
+          },
+          {
+            "id": "create",
+            "title": "Create",
+            "description": "Select code → [Ctrl/Cmd+Shift+A](command:annotateForAgent.annotate).\nQuick: `Ctrl/Cmd+Shift+Q`.",
+            "media": { "markdown": "media/walkthrough/create.md" },
+            "completionEvents": ["onCommand:annotateForAgent.annotate", "onCommand:annotateForAgent.quickCapture"]
+          },
+          {
+            "id": "categorize",
+            "title": "Categorize",
+            "description": "Six categories: Bug · Refactor · Nit · Question · Praise · Suggestion.\nPick fast with `Alt+1`–`6` or number keys.",
+            "media": { "markdown": "media/walkthrough/categorize.md" }
+          },
+          {
+            "id": "suggest",
+            "title": "Suggest patches",
+            "description": "Click **Insert suggestion** for an inline ```suggestion``` block.\nType `@` to reference any file.",
+            "media": { "markdown": "media/walkthrough/suggest.md" }
+          },
+          {
+            "id": "manage",
+            "title": "Export",
+            "description": "Annotations activity bar → filter, select, **Copy** or **Export** as Markdown / JSON / CSV.",
+            "media": { "markdown": "media/walkthrough/manage.md" }
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "Annotate for Agent",
+      "properties": {
+        "annotateForAgent.defaultMode": {
+          "type": "string",
+          "enum": [
+            "panel",
+            "quick"
+          ],
+          "enumDescriptions": [
+            "Full webview panel — category pills, multi-line comment, ```suggestion``` block, @ file picker.",
+            "Native QuickPick category + InputBox comment — single-line, fastest. Ctrl/Cmd+Enter escalates to panel."
+          ],
+          "default": "panel",
+          "description": "Mode used by the main 'Annotate' command (Ctrl/Cmd+Shift+A). Direct commands stay available regardless."
+        },
+        "annotateForAgent.exportDir": {
+          "type": "string",
+          "default": ".annotate-for-agent/exports"
+        },
+        "annotateForAgent.includeCodeHunk": {
+          "type": "boolean",
+          "default": false
+        },
+        "annotateForAgent.defaultFormat": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "json",
+            "csv"
+          ],
+          "default": "markdown"
+        },
+        "annotateForAgent.autoResolveOnExport": {
+          "type": "boolean",
+          "default": false
+        },
+        "annotateForAgent.includeCategoryLegend": {
+          "type": "boolean",
+          "default": true
+        },
+        "annotateForAgent.showResolved": {
+          "type": "boolean",
+          "default": false
+        },
+        "annotateForAgent.filterCurrentFile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show annotations only for the currently active file."
+        },
+        "annotateForAgent.quickCapture.defaultCategory": {
+          "type": "string",
+          "enum": [
+            "Bug",
+            "Refactor",
+            "Nit",
+            "Question",
+            "Praise",
+            "Suggestion"
+          ],
+          "default": "Suggestion",
+          "description": "Category preselected at the top of the Quick Capture picker. Set to whichever you reach for most."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
+    "compile-tests": "tsc -p ./tsconfig.test.json",
+    "test:unit": "mocha",
+    "test:integration": "node ./out/test/integration/runTests.js",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^10.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.3.8",
+    "esbuild": "^0.19.11",
+    "glob": "^10.5.0",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
