@@ -243,9 +243,14 @@ var ListViewProvider = class {
     const openCount = this.store.list().filter((a) => a.status === "open" || a.status === "stale").length;
     if (openCount > 0) {
       this.view.badge = { value: openCount, tooltip: `${openCount} open annotation${openCount === 1 ? "" : "s"}` };
-    } else {
-      this.view.badge = void 0;
+      return;
     }
+    this.view.badge = { value: 0, tooltip: "" };
+    const v = this.view;
+    setTimeout(() => {
+      if (v === this.view)
+        v.badge = void 0;
+    }, 0);
   }
   postState() {
     this.updateBadge();

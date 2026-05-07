@@ -38,9 +38,14 @@ export class ListViewProvider implements vscode.WebviewViewProvider {
     const openCount = this.store.list().filter(a => a.status === 'open' || a.status === 'stale').length
     if (openCount > 0) {
       this.view.badge = { value: openCount, tooltip: `${openCount} open annotation${openCount === 1 ? '' : 's'}` }
-    } else {
-      this.view.badge = undefined
+      return
     }
+    // Some VS Code builds keep the previous value when assigning undefined directly
+    // after a non-zero value. Toggle through an empty badge first, then defer the
+    // final undefined to the next tick so the workbench picks up the clear.
+    this.view.badge = { value: 0, tooltip: '' }
+    const v = this.view
+    setTimeout(() => { if (v === this.view) v.badge = undefined }, 0)
   }
 
   postState(): void {

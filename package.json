@@ -1,15 +1,42 @@
 {
   "name": "annotate-for-agent",
   "displayName": "Annotate for Agent",
-  "description": "Annotate agent-generated code and export feedback for the agent.",
-  "version": "0.0.22",
-  "publisher": "creative-chaos",
+  "description": "Inline feedback for agent-generated code. Export structured payloads your agent can act on.",
+  "version": "1.0.0",
+  "publisher": "SaiMageshvar",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "homepage": "https://github.com/saimageshvar/annotate-for-agent-vs-code#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saimageshvar/annotate-for-agent-vs-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saimageshvar/annotate-for-agent-vs-code/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
+    "AI",
     "Other"
   ],
+  "keywords": [
+    "agent",
+    "ai",
+    "annotation",
+    "review",
+    "feedback",
+    "claude",
+    "copilot",
+    "cursor",
+    "code review",
+    "comments"
+  ],
+  "galleryBanner": {
+    "color": "#0E1116",
+    "theme": "dark"
+  },
   "activationEvents": [
     "onStartupFinished"
   ],

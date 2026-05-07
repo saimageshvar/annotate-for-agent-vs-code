@@ -4,9 +4,9 @@
 
 **Inline feedback for agent-generated code. Export structured payloads your agent can act on.**
 
-[![Marketplace](https://img.shields.io/visual-studio-marketplace/v/creative-chaos.annotate-for-agent?style=flat-square&label=marketplace&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=creative-chaos.annotate-for-agent)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/creative-chaos.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=creative-chaos.annotate-for-agent)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/creative-chaos.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=creative-chaos.annotate-for-agent)
+[![Marketplace](https://img.shields.io/visual-studio-marketplace/v/SaiMageshvar.annotate-for-agent?style=flat-square&label=marketplace&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/SaiMageshvar.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/SaiMageshvar.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
 [![VS Code](https://img.shields.io/badge/VS%20Code-%E2%89%A51.85-0E1116?style=flat-square)](https://code.visualstudio.com/)
 
 <br />
@@ -49,10 +49,10 @@ The export is one structured block per note — path, range, snippet, category, 
 ## Install
 
 ```
-ext install creative-chaos.annotate-for-agent
+ext install SaiMageshvar.annotate-for-agent
 ```
 
-Or grab it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=creative-chaos.annotate-for-agent).
+Or grab it from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent).
 
 <br />
 
@@ -166,7 +166,7 @@ Drag the **Annotations** view from the activity bar to the **Secondary Side Bar*
 
 <br /><br />
 
-<a href="https://marketplace.visualstudio.com/items?itemName=creative-chaos.annotate-for-agent"><img src="https://img.shields.io/badge/Install-Annotate%20for%20Agent-0E1116?style=for-the-badge" alt="Install" /></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent"><img src="https://img.shields.io/badge/Install-Annotate%20for%20Agent-0E1116?style=for-the-badge" alt="Install" /></a>
 
 <br /><br />
 

@@ -4,6 +4,8 @@
 .claude/**
 node_modules/**
 out/**
+media/readme/**
+.annotate-for-agent/**
 src/**/*.ts
 src/store/**
 src/editor/**
