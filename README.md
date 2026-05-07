@@ -4,9 +4,10 @@
 
 **Inline feedback for agent-generated code. Export structured payloads your agent can act on.**
 
-[![Marketplace](https://img.shields.io/visual-studio-marketplace/v/SaiMageshvar.annotate-for-agent?style=flat-square&label=marketplace&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/SaiMageshvar.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/SaiMageshvar.annotate-for-agent?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Marketplace](https://vsmarketplacebadges.dev/version-short/SaiMageshvar.annotate-for-agent.svg?label=marketplace&style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/SaiMageshvar.annotate-for-agent.svg?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Rating](https://vsmarketplacebadges.dev/rating-short/SaiMageshvar.annotate-for-agent.svg?style=flat-square&color=0E1116)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![License](https://img.shields.io/badge/license-MIT-0E1116?style=flat-square)](LICENSE)
 [![VS Code](https://img.shields.io/badge/VS%20Code-%E2%89%A51.85-0E1116?style=flat-square)](https://code.visualstudio.com/)
 
 <br />
@@ -16,9 +17,6 @@
 <sub><i>Select. Annotate. Export. Your agent picks up exactly what you meant.</i></sub>
 
 </div>
-
-<br />
-<br />
 
 ## The 60-second pitch
 
@@ -158,18 +156,12 @@ Each block is path-anchored, language-tagged, and self-contained. Switch to JSON
 
 Drag the **Annotations** view from the activity bar to the **Secondary Side Bar** on the right (right-click → *Move View*). File tree on the left, code in the middle, annotations on the right — review at a glance, click any card to jump straight to the line.
 
-<br />
+---
 
 <div align="center">
-
-<sub><b>Built for the era when most code gets written by an agent and reviewed by you.</b></sub>
-
-<br /><br />
-
 <a href="https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent"><img src="https://img.shields.io/badge/Install-Annotate%20for%20Agent-0E1116?style=for-the-badge" alt="Install" /></a>
-
+<br />
+<sub><a href="https://github.com/saimageshvar/annotate-for-agent-vs-code/issues">Report an issue</a> · <a href="https://github.com/saimageshvar/annotate-for-agent-vs-code">Source</a> · <a href="https://github.com/saimageshvar/annotate-for-agent-vs-code/blob/main/LICENSE">License</a></sub>
 <br /><br />
-
-<sub><a href="https://github.com/saimageshvar/annotate-for-agent-vs-code/issues">Report an issue</a> · <a href="https://github.com/saimageshvar/annotate-for-agent-vs-code">Source</a> · <a href="https://github.com/saimageshvar/annotate-for-agent-vs-code/blob/main/README.md">Docs</a></sub>
-
+<sub><i>Built for the era when most code gets written by an agent and reviewed by you.</i></sub>
 </div>
