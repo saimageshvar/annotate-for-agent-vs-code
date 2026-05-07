@@ -4,7 +4,7 @@
 
 **Inline feedback for agent-generated code. Export structured payloads your agent can act on.**
 
-[![Marketplace](https://img.shields.io/badge/marketplace-v1.0.0-0E1116?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
+[![Marketplace](https://img.shields.io/badge/marketplace-v1.0.1-0E1116?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=SaiMageshvar.annotate-for-agent)
 [![VS Code](https://img.shields.io/badge/VS%20Code-%E2%89%A51.85-0E1116?style=flat-square)](https://code.visualstudio.com/)
 [![License](https://img.shields.io/badge/license-MIT-0E1116?style=flat-square)](LICENSE)
 

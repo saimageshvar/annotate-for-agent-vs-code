@@ -2,7 +2,7 @@
   "name": "annotate-for-agent",
   "displayName": "Annotate for Agent",
   "description": "Inline feedback for agent-generated code. Export structured payloads your agent can act on.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "SaiMageshvar",
   "license": "MIT",
   "icon": "media/icon.png",
