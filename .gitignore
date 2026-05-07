@@ -27,3 +27,10 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+
+# README capture artifacts
+media/readme/*.raw.png
+media/readme/*.raw.gif
+
+# Local exports from extension
+.annotate-for-agent/
